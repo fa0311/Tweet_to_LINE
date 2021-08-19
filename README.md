@@ -1,7 +1,13 @@
 # Tweet_to_LINE
 
-ツイートを取得して LINEnotify で送信する<br>
+ツイートを取得して LINEnotify に送信する<br>
 <br>
+
+## Installation
+
+```crontab
+*/5 * * * * python3 sample.py
+```
 
 ## Usage
 
@@ -20,7 +26,7 @@ wait = 60 * 5
 #監視するTwitterId
 account_id = "faa0311"
 #インスタンス作成
-alert = Tweet_to_LINE.Tweet_to_LINE(twitter_client)
+alert = Tweet_to_LINE.Tweet_to_LINE(twitter_client, wait)
 #データの取得とトリム 正規表現, 結果
 tweets = alert.get_tweets(account_id)
 #正規表現, 結果
@@ -30,3 +36,7 @@ alert.print(line_notify_token)
 #LINEnotifyに送信
 alert.send(line_notify_token)
 ```
+
+## License
+
+Tweet_to_LINE is under MIT License
